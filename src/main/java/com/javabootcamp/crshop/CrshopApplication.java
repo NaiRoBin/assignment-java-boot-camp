@@ -1,5 +1,7 @@
 package com.javabootcamp.crshop;
 
+import com.javabootcamp.crshop.product.Product;
+import com.javabootcamp.crshop.product.ProductRepository;
 import com.javabootcamp.crshop.users.User;
 import com.javabootcamp.crshop.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,11 @@ public class CrshopApplication {
 
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private ProductRepository productRepository;
+
+	public CrshopApplication() {
+	}
 
 	@PostConstruct
 	public void addUser() {
@@ -27,6 +34,16 @@ public class CrshopApplication {
 		user.setProvince("กรุงเทพมหานคร");
 		user.setZipcode("10160");
 		userRepository.save(user);
+	}
+
+	@PostConstruct
+	public void addProduct(){
+		Product product = new Product();
+		product.setName("product001");
+		product.setDescription("product001 description");
+		product.setPrice(200F);
+		product.setQuantity(10);
+		productRepository.save(product);
 	}
 
 	public static void main(String[] args) {

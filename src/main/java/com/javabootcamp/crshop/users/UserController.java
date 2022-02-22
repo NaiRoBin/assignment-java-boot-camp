@@ -14,10 +14,10 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("api/hello/{name}")
-    public UserResponse getUser(@PathVariable String name) {return new UserResponse(userService.concatData(name));};
+    public UserResponse findUserByName(@PathVariable String name) {return new UserResponse(userService.concatData(name));};
 
     @GetMapping("api/user/{name}")
-    public ResponseEntity<User> getUserJson(@PathVariable String name){
+    public ResponseEntity<User> findUserJsonByName(@PathVariable String name){
         User user;
         user = userService.findUserByName(name);
         return new ResponseEntity<User>(user, HttpStatus.OK);
