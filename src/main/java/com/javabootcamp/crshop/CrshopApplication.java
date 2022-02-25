@@ -25,7 +25,6 @@ public class CrshopApplication {
 	public void addUser() {
 		User user = new User();
 		user.setName("pom");
-		//user.setId(1L);
 		user.setEmail("test@gmail.com");
 		user.setUsername("pom");
 		user.setAddress("99/99");
