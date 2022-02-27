@@ -16,14 +16,14 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("api/product/{name}")
+    @GetMapping("/api/product/{name}")
     public ResponseEntity<Product> findProductByname (@PathVariable String name){
         Product product;
         product = productService.findProductByName(name);
         return new ResponseEntity<Product>(product, HttpStatus.OK);
     }
 
-    @GetMapping("api/product")
+    @GetMapping("/api/product")
     public ResponseEntity<Object> findAllProduct(){
         List<Product> products;
         products = productService.findProductAll();

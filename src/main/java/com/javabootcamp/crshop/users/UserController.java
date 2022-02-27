@@ -13,10 +13,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("api/hello/{name}")
+    @GetMapping("/api/hello/{name}")
     public UserResponse findUserByName(@PathVariable String name) {return new UserResponse(userService.concatData(name));};
 
-    @GetMapping("api/user/{name}")
+    @GetMapping("/api/user/{name}")
     public ResponseEntity<User> findUserJsonByName(@PathVariable String name){
         User user;
         user = userService.findUserByName(name);
