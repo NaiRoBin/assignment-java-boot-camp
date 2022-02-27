@@ -89,12 +89,29 @@ public class Basket {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Basket basket = (Basket) o;
-        return Objects.equals(Id, basket.Id) && Objects.equals(name, basket.name) && Objects.equals(userId, basket.userId) && Objects.equals(productId, basket.productId) && Objects.equals(productName, basket.productName) && Objects.equals(amount, basket.amount) && Objects.equals(price, basket.price) && Objects.equals(sumprice, basket.sumprice);
+
+        if (Id != null ? !Id.equals(basket.Id) : basket.Id != null) return false;
+        if (name != null ? !name.equals(basket.name) : basket.name != null) return false;
+        if (userId != null ? !userId.equals(basket.userId) : basket.userId != null) return false;
+        if (productId != null ? !productId.equals(basket.productId) : basket.productId != null) return false;
+        if (productName != null ? !productName.equals(basket.productName) : basket.productName != null) return false;
+        if (amount != null ? !amount.equals(basket.amount) : basket.amount != null) return false;
+        if (price != null ? !price.equals(basket.price) : basket.price != null) return false;
+        return sumprice != null ? sumprice.equals(basket.sumprice) : basket.sumprice == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, name, userId, productId, productName, amount, price, sumprice);
+        int result = Id != null ? Id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (productId != null ? productId.hashCode() : 0);
+        result = 31 * result + (productName != null ? productName.hashCode() : 0);
+        result = 31 * result + (amount != null ? amount.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (sumprice != null ? sumprice.hashCode() : 0);
+        return result;
     }
 }
